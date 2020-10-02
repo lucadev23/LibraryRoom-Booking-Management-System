@@ -165,9 +165,6 @@ VALUES (11,111,12,1,0,1,212),(12,112,5,1,1,1,212),(13,113,12,1,1,1,212),(21,211,
 
 SHOW WARNINGS;
 
-drop table room;
-
-
 -- -----------------------------------------------------
 -- Table `meeting`.`meeting_table`
 -- -----------------------------------------------------
@@ -235,9 +232,9 @@ desc meeting_table;
   MODIFY COLUMN end_time time;
   ALTER TABLE meeting.meeting_table
   MODIFY COLUMN start_time time ;
-  
-        ALTER TABLE meeting.meeting_table
-  MODIFY COLUMN meeting_table.date date;
+                          
+ ALTER TABLE meeting.`meeting_table`
+		CHANGE `date` `date` DATE NOT NULL DEFAULT '0' COMMENT '';
   
 ALTER TABLE meeting.floor
   MODIFY COLUMN start_time time;
